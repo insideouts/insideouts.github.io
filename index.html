@@ -36,7 +36,6 @@
             display: flex;
             justify-content: center;
             padding: 2rem;
-            /* Extra height to ensure scrolling is possible to see the animation */
             min-height: 110vh; 
             overflow-x: hidden;
         }
@@ -159,6 +158,61 @@
             background: rgba(0, 240, 255, 0.05);
         }
 
+        /* --- Projects Section --- */
+        .project-card {
+            display: block;
+            text-decoration: none;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 120, 214, 0.1);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-header h4 {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+        }
+
+        .project-card .external-link {
+            width: 20px;
+            height: 20px;
+            fill: var(--text-muted);
+            transition: fill 0.3s ease;
+        }
+
+        .project-card:hover .external-link {
+            fill: var(--accent-cyan);
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
+            max-width: 100%;
+        }
+
+        .project-card:hover .tag {
+            color: var(--accent-cyan);
+            border-color: rgba(0, 240, 255, 0.3);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
         /* --- Contact Section Buttons --- */
         .contact-links {
             display: flex;
@@ -206,6 +260,7 @@
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
         .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
 
         @keyframes slideUpFade {
             to {
@@ -286,9 +341,31 @@
             </div>
         </section>
 
-        <!-- Contact Section (NEW) -->
+        <!-- Projects Section (NEW) -->
         <section class="animate-up delay-3">
-            <h3>// connect</h3>
+            <h3>// runtime_projects</h3>
+            
+            <a href="https://insideouts.github.io/3d-cosmo/" target="_blank" class="project-card">
+                <div class="project-header">
+                    <h4>3D COSMOS</h4>
+                    <!-- External Link SVG -->
+                    <svg class="external-link" viewBox="0 0 24 24">
+                        <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                    </svg>
+                </div>
+                <p class="project-desc">An interactive, high-performance web simulation of celestial bodies. Leverages modern rendering pipelines to visualize spatial relationships and orbital mechanics directly in the browser.</p>
+                <div class="tag-container">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">3D Rendering</span>
+                </div>
+            </a>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="animate-up delay-4">
+            <h3>// init_connection</h3>
             
             <div class="contact-links">
                 <a href="mailto:nihalsai1606@gmail.com" class="contact-btn">
@@ -310,7 +387,7 @@
         </section>
 
         <!-- Footer / Quote Section -->
-        <section class="animate-up delay-4">
+        <section class="animate-up delay-5">
             <p style="font-family: var(--font-mono); font-size: 0.85rem; color: #444;">
                 > code compiles. hardware executes.
             </p>

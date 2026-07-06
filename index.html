@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nihal Sai | Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #050505;
+            --surface-color: #111111;
+            --border-color: #222222;
+            --text-main: #f0f0f0;
+            --text-muted: #888888;
+            --accent-blue: #0078D6;
+            --accent-cyan: #00f0ff;
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 4rem 0;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #fff, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--accent-cyan);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        h3 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            max-width: 650px;
+        }
+
+        strong {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 5rem;
+        }
+
+        /* Grid for Stack */
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stack-category {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .stack-category:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 120, 214, 0.1);
+        }
+
+        .stack-category h4 {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .stack-category:hover .tag {
+            color: var(--accent-cyan);
+            border-color: rgba(0, 240, 255, 0.3);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        /* Animations */
+        .animate-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.5s; }
+
+        @keyframes slideUpFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Selection Color */
+        ::selection {
+            background-color: var(--accent-cyan);
+            color: var(--bg-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header Section -->
+        <header class="animate-up">
+            <h1>Nihal Sai</h1>
+            <h2>Systems // Electronics & Communication Engineering</h2>
+        </header>
+
+        <!-- About Section -->
+        <section class="animate-up delay-1">
+            <p>
+                Freshman studying <strong>Electronics and Communication Engineering</strong> at <strong>NMIT, Bengaluru</strong>.
+            </p>
+            <p>
+                I operate close to the metal. I am stepping away from high-level abstractions to focus on bare-metal programming, memory management, and how hardware seamlessly interfaces with software.
+            </p>
+        </section>
+
+        <!-- The Stack Section -->
+        <section class="animate-up delay-2">
+            <h3>// system_stack</h3>
+            
+            <div class="stack-grid">
+                
+                <!-- Core Card -->
+                <div class="stack-category">
+                    <h4>Core Languages</h4>
+                    <div class="tag-container">
+                        <span class="tag">C</span>
+                        <span class="tag">C++</span>
+                    </div>
+                </div>
+
+                <!-- Familiar Card -->
+                <div class="stack-category">
+                    <h4>Scripting & Web</h4>
+                    <div class="tag-container">
+                        <span class="tag">Python</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">HTML</span>
+                    </div>
+                </div>
+
+                <!-- Environment Card -->
+                <div class="stack-category">
+                    <h4>Environment</h4>
+                    <div class="tag-container">
+                        <span class="tag">Windows</span>
+                        <span class="tag">VS Code</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer / Quote Section -->
+        <section class="animate-up delay-3">
+            <p style="font-family: var(--font-mono); font-size: 0.85rem; color: #444;">
+                > code compiles. hardware executes.
+            </p>
+        </section>
+
+    </div>
+
+</body>
+</html>

@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nihal Sai | Systems</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <!-- Custom Fonts: Inter for clean UI, JetBrains Mono for systems vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -16,7 +17,7 @@
             --text-main: #f0f0f0;
             --text-muted: #888888;
             --accent-blue: #0078D6;
-            --accent-cyan: #00f0ff;
+            --accent-cyan: #64cc4f;
             --font-sans: 'Inter', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
@@ -35,13 +36,28 @@
             display: flex;
             justify-content: center;
             padding: 2rem;
-            min-height: 100vh;
+            /* Extra height to ensure scrolling is possible to see the animation */
+            min-height: 110vh; 
+            overflow-x: hidden;
+        }
+
+        /* --- Background Scroll SVG Animation --- */
+        .bg-circuit {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0.2;
+            pointer-events: none;
         }
 
         .container {
             max-width: 800px;
             width: 100%;
-            padding: 4rem 0;
+            padding: 4rem 0 8rem 0;
+            z-index: 1;
         }
 
         /* Typography */
@@ -143,6 +159,42 @@
             background: rgba(0, 240, 255, 0.05);
         }
 
+        /* --- Contact Section Buttons --- */
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            background: var(--surface-color);
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .contact-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            transition: fill 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.1);
+        }
+
         /* Animations */
         .animate-up {
             opacity: 0;
@@ -151,8 +203,9 @@
         }
 
         .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.3s; }
-        .delay-3 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
 
         @keyframes slideUpFade {
             to {
@@ -169,6 +222,14 @@
     </style>
 </head>
 <body>
+
+    <!-- Background Scroll SVG -->
+    <svg class="bg-circuit" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path class="scroll-trace" d="M 10 0 L 10 30 L 30 50 L 30 100" fill="none" stroke="var(--accent-blue)" stroke-width="0.3" stroke-linecap="square"/>
+        <path class="scroll-trace" d="M 85 0 L 85 40 L 65 60 L 65 100" fill="none" stroke="var(--accent-cyan)" stroke-width="0.3" stroke-linecap="square"/>
+        <path class="scroll-trace" d="M 50 -10 L 50 25 L 70 45 L 70 80 L 50 100" fill="none" stroke="#444" stroke-width="0.2" stroke-linecap="square"/>
+        <path class="scroll-trace" d="M -10 60 L 20 60 L 40 80 L 40 110" fill="none" stroke="var(--accent-blue)" stroke-width="0.15" stroke-linecap="square"/>
+    </svg>
 
     <div class="container">
         
@@ -225,8 +286,31 @@
             </div>
         </section>
 
-        <!-- Footer / Quote Section -->
+        <!-- Contact Section (NEW) -->
         <section class="animate-up delay-3">
+            <h3>// connect</h3>
+            
+            <div class="contact-links">
+                <a href="mailto:nihalsai1606@gmail.com" class="contact-btn">
+                    <!-- Mail Icon SVG -->
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    nihalsai1606@gmail.com
+                </a>
+                
+                <a href="https://github.com/insideouts" target="_blank" class="contact-btn">
+                    <!-- GitHub Icon SVG -->
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    github.com/insideouts
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer / Quote Section -->
+        <section class="animate-up delay-4">
             <p style="font-family: var(--font-mono); font-size: 0.85rem; color: #444;">
                 > code compiles. hardware executes.
             </p>
@@ -234,5 +318,34 @@
 
     </div>
 
+    <!-- Script for SVG Scroll Animation -->
+    <script>
+        const traces = document.querySelectorAll('.scroll-trace');
+        
+        // Initialize stroke values
+        traces.forEach(trace => {
+            const length = trace.getTotalLength();
+            trace.style.strokeDasharray = length;
+            trace.style.strokeDashoffset = length; // Hide traces initially
+        });
+
+        // Draw on scroll
+        window.addEventListener('scroll', () => {
+            // Calculate scroll percentage
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = scrollTop / scrollHeight;
+            
+            // Draw traces relative to scroll distance
+            traces.forEach(trace => {
+                const length = trace.getTotalLength();
+                const draw = length * scrollPercent;
+                trace.style.strokeDashoffset = length - draw;
+            });
+        });
+        
+        // Trigger once on load in case page is already scrolled slightly
+        window.dispatchEvent(new Event('scroll'));
+    </script>
 </body>
 </html>
